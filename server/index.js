@@ -3,11 +3,11 @@ const bodyParser = require('body-parser');
 const getData = require('../db/index.js').getData;
 const getOne = require('../db/index.js').getOne;
 const app = express();
-const port = 3000;
+const port = 5000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(__dirname + '../public'));
+app.use(express.static(__dirname + '/../public'));
 
 app.get('/header', (req, res) => {
     //res.send('hey');
