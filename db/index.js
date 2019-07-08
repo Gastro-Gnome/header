@@ -6,8 +6,13 @@ const Restaurant = require('./Header').Restaurant;
 
 var getData = function(cb){
     console.log('GET DATA from db/index.js')
-    Restaurant.find({name : "Harris, McDermott and Franecki"})
+    Restaurant.find()
         .then((data) => cb(null, data))
+}
+var getOne = function(id, cb){
+    console.log('GET with id: ' + id + ' from db/index.js');
+    Restaurant.find({_id : id})
+        .then((data) => cb(null, data));
 }
 
 /*
@@ -24,5 +29,5 @@ Restaurant.insertMany(seed.reviewEntries, function(err, docs){
 })
 */
 module.exports = {
-    db, getData
+    db, getData, getOne
 };
