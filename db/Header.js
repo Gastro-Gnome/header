@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 
 const reviewSchema = new mongoose.Schema({
-	"user" : String,
-	"body" : String,
 	"date" : String,
 	"rating" : Number
 })

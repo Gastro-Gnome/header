@@ -7,9 +7,9 @@ const restaurantEntries = [];
 
 var generateReviews = function(){ //generate reviews
     const reviewEntries = [];
-    const random = Math.floor(Math.random() * (1500));
+    const random = Math.floor(Math.random() * (1000 - 10)) + 10;
     for(var i = 0; i < random; i++){
-        reviewEntries.push({"user" : faker.name.findName(), "body" : faker.lorem.paragraph(), "date" : faker.date.between('2015-01-01', '2019-06-30'), "rating" : faker.random.number({min:1, max:5})})
+        reviewEntries.push({"date" : faker.date.between('2015-01-01', '2019-06-30'), "rating" : faker.random.number({min:1, max:5})})
     }
     //console.log(reviewEntries.length);
     return reviewEntries;
