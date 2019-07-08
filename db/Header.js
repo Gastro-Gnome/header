@@ -8,11 +8,11 @@ const restaurantSchema =  new mongoose.Schema({
 	"tags" : String,
     "stars" : String,
     "address" : String,
-    "latitude" : Number,
-    "longitude" : Number,
+    "latitude" : String,
+    "longitude" : String,
     "phone" : String,
     "website" : String,
-	"reviews" : [reviewSchema]
+	//"reviews" : [reviewSchema]
 })
 
 const reviewSchema = new mongoose.Schema({
