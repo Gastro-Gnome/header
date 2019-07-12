@@ -1,9 +1,30 @@
 import React from 'react';
+import Navbar from './Navbar.jsx';
+import Header from './Header.jsx';
 
-const App = () => (
+class App extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      currRestaurant : {},
+    }
+  }
+  componentDidMount(){
+      //api call
+  }
+  render() {
+    return(
   <div>
-    Hello World!
+    <div>
+      <Navbar />
+    </div>
+    <div>
+      <Header />
+    </div>
   </div>
-);
+
+    )
+  };
+}
 
 export default App;
