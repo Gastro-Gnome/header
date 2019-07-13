@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from '../client/components/App.jsx';
 import {shallow} from 'enzyme';
+import DetailView from '../client/components/DetailView.jsx';
 
 
 describe('First React component Enzyme test', () => {
@@ -13,6 +13,7 @@ describe('First React component Enzyme test', () => {
 describe('App', ()=>{
     it('should render a <div />', () => {
         const wrapper = shallow(<App />);
-        expect(wrapper.find('div').length).toEqual(1);
+        expect(wrapper.find('div').length).toEqual(3);
     });
 });
+
