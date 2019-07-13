@@ -2,6 +2,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import LineChart from './LineChart.jsx';
 import BarChart from './BarChart.jsx';
+import styled from 'styled-components';
 
 const customStyles = {
   content : {
@@ -13,10 +14,19 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)'
   }
 };
- 
+
+const Ratings = styled.div`
+font-weight: bold;
+margin-bottom: 6px;
+font-size: 21px;
+line-height: 1.28571em;
+color: #d32323;
+`;
+Modal.setAppElement('#app')
+
 class DetailView extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
  
     this.state = {
       modalIsOpen: false
@@ -42,7 +52,7 @@ class DetailView extends React.Component {
   render() {
     return (
       <div>
-        <button className = "button#detailViewModal" onClick={this.openModal}>Open Modal</button>
+        <button className = "button#detailViewModal" onClick={this.openModal}>Details</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -51,17 +61,18 @@ class DetailView extends React.Component {
           contentLabel="Example Modal"
         >
             
-          <h2 ref={subtitle => this.subtitle = subtitle}>Rating Details</h2>
+          <h2 ref={subtitle => this.subtitle = subtitle}><Ratings>Rating Details</Ratings>          <button onClick={this.closeModal}>close</button></h2>
+          
           <form>
             <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
+            <button>2015</button>
+            <button>2019</button>
+            <button>2018</button>
             <button>the modal</button>
           </form>
-          <button onClick={this.closeModal}>close</button>
-         <div><LineChart /></div>
-          <div><BarChart /></div>
+
+         <div><LineChart data={this.props.data}/></div>
+          <div><BarChart data={this.props.data}/></div>
         </Modal>
       </div>
     );

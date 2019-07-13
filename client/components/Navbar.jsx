@@ -37,7 +37,6 @@ const FindIcon = styled.div`
     font-weight: bold;
     color: #333;
     cursor: default;
-    background-color : white;
 `;
 
 const FindInput = styled.input`
@@ -55,7 +54,7 @@ float: left;
 const NearInput = styled.input`
   width : 250px;
 `;
-const SearchIconBox = styled.div`
+const SearchIconBox = styled.button`
 display : flex;
 align-items : center;
 justify-content : center;
@@ -77,11 +76,15 @@ margin-left : 5px;
     top: -.1em;
 `;
 
-
+const ButtonsBox = styled.div`
+display : flex;
+flex-direction : row;
+align-items : center;
+color : white;
+`;
 const Buttons = styled.div`
 margin: 10px;
 font-size : 20px;
-color : white;
 `;
 
 const ProfileIcon = styled.div`
@@ -104,6 +107,7 @@ const BottomContainer = styled.div`
 background-color : #e6e6e6;
 border-style: solid;
 border-width: 1px;
+margin-bottom : 15px;
 `;
 
 const BottomBox = styled.div`
@@ -122,6 +126,9 @@ margin-right : 20px;
 border-style: solid;
 border-width: 1px;
 width 150px;
+:hover{
+    color : blue;
+}
 `;
 
 const RestaurantLogo = styled.div`
@@ -145,6 +152,9 @@ const HomeServiceBox = styled.div`
 margin-right : 20px;
 border-style: solid;
 border-width: 1px;
+:hover{
+    color : blue;
+}
 `;
 const HomeServiceLogo = styled.div`
 font-size : 25px;
@@ -158,6 +168,9 @@ allign-items : center;
 margin-right : 20px;
 border-style: solid;
 border-width: 1px;
+:hover{
+    color : blue;
+}
 `;
 const AutoServiceIcon = styled.div`
 font-size : 25px;
@@ -170,6 +183,9 @@ flex-direction : row;
 allign-items : center;
 border-style: solid;
 border-width: 1px;
+:hover{
+    color : blue;
+}
 `;
 
 const PencilBox = styled.div`
@@ -178,6 +194,9 @@ flex-direction : row;
 allign-items : center;
 border-style: solid;
 border-width: 1px;
+:hover{
+    color : blue;
+}
 `;
 const PencilIcon = styled.div`
 font-size : 25px;
@@ -191,6 +210,9 @@ flex-direction : row;
 allign-items : center;
 border-style: solid;
 border-width: 1px;
+:hover{
+    color : blue;
+}
 `;
 
 const BusinessIcon = styled.div`
@@ -236,12 +258,15 @@ class Navbar extends React.Component{
                             </SearchButton>
                             </SearchIconBox>
                     </SearchBox>
-              <Buttons className="fas fa-comment-alt">
+                    <ButtonsBox>
+
+
+              <Buttons className="fas fa-comment-alt"/>
                 
-                </Buttons>
-                    <Buttons className="far fa-bell">
+                    <Buttons className="far fa-bell"/>
+                    </ButtonsBox>
                 
-              </Buttons>
+              
               <ProfileIcon className="fas fa-user-alt"/>
               <ProfileDropdown>
                 P

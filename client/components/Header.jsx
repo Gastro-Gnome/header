@@ -26,8 +26,8 @@ const RestaurantName = styled.div`
 `;
 
 const CheckIcon = styled.div`
-margin-left 2px;
-color : blue;
+margin-left : 2px;
+color : #0073bb
 margin-right : 5px;   
 `;
 
@@ -49,20 +49,23 @@ const MiddleBox = styled.div`
 `;
 
 const LeftMiddleBox = styled.div`
-background-color : purple;
 display : flex;
 flex-direction : row;
 align-items : flex-end;
 width : 900px;
 `;
 const Stars = styled.div`
-
+margin-right : 5px;
 `;
 const ReviewAmount = styled.div`
+display: block;
+    float: left;
+    color: #666;
+    font-weight: normal;
+    text-shadow: 0 1px rgba(255,255,255,0.7);
 `;
 
 const BottomBox = styled.div`
-    background-color : orange
     display : flex;
     flex-direction : row;
     align-items : flex-end;
@@ -70,23 +73,36 @@ const BottomBox = styled.div`
 `;
 
 const Price = styled.div`
-
+margin-right : 5px;
+letter-spacing: 1px;
+padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 `;
-const Tags = styled.div`
+const Tags = styled.a`
+font-color : blue
+color : blue
 `;
 const Edit = styled.div`
 `;
 const SideBox = styled.div`
-    background-color : green;
     display : flex;
     flex-direction : row;
     width : 700px;
 `;
-const WriteReviewBox = styled.div`
-    background-color : red
+const WriteReviewBox = styled.button`
     display : flex;
     flex-direction : row;
     align-items : center;
+    color: #fff;
+    background: #d32323;
+    border: 1px solid #d32323;
+    background-image: none;
+    background-repeat: no-repeat;
+    transition: all 0.6s;
+    transition-property: background-color, background-position, background-size, border-color;
 `;
 
 const WriteReviewIcon = styled.i`
@@ -98,7 +114,7 @@ const SideSubBox = styled.div`
     align-items : center;
     margin-left : 50px;
 `;
-const AddPhotoBox = styled.div`
+const AddPhotoBox = styled.button`
     display : flex;
     flex-direction : row;
     color: #666;
@@ -112,7 +128,7 @@ const AddPhotoBox = styled.div`
 const AddPhotoIcon = styled.div`
 
 `;
-const ShareBox = styled.div`
+const ShareBox = styled.button`
     display : flex;
     flex-direction : row;
     color: #666;
@@ -126,7 +142,7 @@ const ShareBox = styled.div`
 const ShareIcon = styled.div`
 
 `;
-const SaveBox = styled.div`
+const SaveBox = styled.button`
     display : flex;
     flex-direction : row;
     color: #666;
@@ -144,14 +160,19 @@ const SaveIcon = styled.div`
 class Header extends React.Component{
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {
+            avg : this.avgReviews(),
+        };
+    }
+    avgReviews(){
+        return this.props.data["reviews"].reduce((acc, curr) => acc + curr["rating"], 0)/this.props.data["reviews"].length;
     }
     render(){
         return(
             <div>
                 <HeaderBox>
                     <TopBox>
-                        <RestaurantName>Archive Bar</RestaurantName>
+                        <RestaurantName>{this.props.data["name"]}</RestaurantName>
                         <ClaimedBox>
                         <CheckIcon className = "fas fa-check-circle"/>
                         <div>Claimed</div>
@@ -159,18 +180,18 @@ class Header extends React.Component{
                     </TopBox>
                     <MiddleBox>
                         <LeftMiddleBox>
-                        <Stars>Ratings</Stars>
+                        <Stars>{this.state.avg}Ratings</Stars>
                         <ReviewAmount>
-                        330 Reviews
+                        {this.props.data["reviews"].length} reviews
                         </ ReviewAmount>
-                        <DetailView />
+                        <DetailView id="#detailViewElement" data={this.props.data}/>
                         </LeftMiddleBox>
                         <SideBox>
                             <WriteReviewBox>     
                                 <WriteReviewIcon className="fas fa-star"/>
-                           <button>
+                           <div>
                             Write A Review   
-                            </button> 
+                            </div> 
                             </WriteReviewBox>
                             <SideSubBox>
                                 <AddPhotoBox>
@@ -190,10 +211,10 @@ class Header extends React.Component{
                     </MiddleBox>
                     <BottomBox>
                         <Price>
-                            $$$
+                            {this.props.data["priceRating"]}
                         </Price>
-                        <Tags>
-                        American (New), Pizza 
+                        <Tags href="https://www.yelp.com/c/sf/restaurants">
+                        {this.props.data["tags"]}
                         </Tags>
                         <Edit />
                     </BottomBox>
