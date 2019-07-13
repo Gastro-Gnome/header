@@ -54,21 +54,18 @@ class LineChart extends React.Component {
 
                 LineChart here
         <svg viewBox="0 0 500 200" className="chart graph">
+            <g>
+
+        <circle>cx="200" cy="100 r="200" stroke="red" strokeWidth="1"</circle>
+            </g>
+
                     <polyline
                         fill="none"
                         stroke="red"
                         strokeWidth="2"
                         points={this.state.points ? this.state.points.join("\n") : <div></div>}//this.state.points
-                    />
-                    {/* <polyline 
-       fill = "none"
-       stroke = "gray"
-       strokeWidth="1"
-       points="
-       0,100
-       
-       "
-       /> */}
+                    />                
+
                     <line x1="0" y1="0" x2="0" y2="200" stroke="gray" strokeWidth="0.5" />
                     <line x1="45.45" y1="0" x2="45.45" y2="200" stroke="gray" strokeWidth="0.5" />
                     <line x1="90.91" y1="0" x2="90.91" y2="200" stroke="gray" strokeWidth="0.5" />
@@ -89,7 +86,6 @@ class LineChart extends React.Component {
                     <line x1="0" y1="160" x2="500" y2="160" stroke="gray" strokeWidth="0.5" />
                     <line x1="0" y1="200" x2="500" y2="200" stroke="gray" strokeWidth="0.5" />
                     <text x="0" y="100">A</text>
-
                 </svg>
             </div>
         )

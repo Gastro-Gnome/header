@@ -7,9 +7,10 @@ const Yelp = styled.div`
 const TopContainer = styled.div`
   background: #d32323;
   display: flex;
-  justify-content: center;
-  height : 55px ;
-`;
+  align-items : center;
+  height : 55px;
+  justify-content : center;
+  `;
 
 const TopBox = styled.div`
   display: flex;
@@ -17,10 +18,14 @@ const TopBox = styled.div`
 `;
 
 const YelpLogoBox = styled.div`
-  font-size: 50px;
+  font-size: 20px;
+  display : flex;
+  flex-direction : row; 
 `;
 
 const YelpLogo = styled.div`
+font-size : 30px;
+color:white;
 `;
 
 const SearchBox = styled.div`
@@ -33,14 +38,15 @@ const SearchBox = styled.div`
 
 const FindIcon = styled.div`
   float: left;
-  font: inherit;
     font-weight: bold;
     color: #333;
     cursor: default;
+    background-color : white;
 `;
 
 const FindInput = styled.input`
   width : 250px;
+  font-size : 13px;
 `;
 
 const NearIcon = styled.div`
@@ -53,6 +59,7 @@ float: left;
 
 const NearInput = styled.input`
   width : 250px;
+  font-size : 13px;
 `;
 const SearchIconBox = styled.button`
 display : flex;
@@ -92,14 +99,12 @@ color : white;
 margin-left: 10px;
 width: 25px;
 height: 25px;
-
 :hover {
-    background-color: pink;
+    background-color: white;
 }
 `;
 
-const ProfileDropdown = styled.div`
-background-color: purple;
+const ProfileDropdown = styled.button`
 margin-right: 10px;
 `;
 
@@ -107,7 +112,6 @@ const BottomContainer = styled.div`
 background-color : #e6e6e6;
 border-style: solid;
 border-width: 1px;
-margin-bottom : 15px;
 `;
 
 const BottomBox = styled.div`
@@ -126,6 +130,7 @@ margin-right : 20px;
 border-style: solid;
 border-width: 1px;
 width 150px;
+align-items : center;
 :hover{
     color : blue;
 }
@@ -144,45 +149,49 @@ background-color : blue;
 display : flex;
 flex-wrap : wrap;
 display : none;
-${RestaurantBox} : hover & {
-    display : block;
-}
 `;
 const HomeServiceBox = styled.div`
+display : flex;
+flex-direction : row;
+justify-content : center;
 margin-right : 20px;
 border-style: solid;
 border-width: 1px;
+width 150px;
+align-items : center;
 :hover{
     color : blue;
 }
 `;
 const HomeServiceLogo = styled.div`
-font-size : 25px;
-width: 24px;
-height: 24px;
+font-size : 20px;
+margin-right : 5px;
 `;
 const AutoServiceBox = styled.div`
 display : flex;
 flex-direction : row;
-allign-items : center;
+justify-content : center;
 margin-right : 20px;
 border-style: solid;
 border-width: 1px;
+width 150px;
+align-items : center;
 :hover{
     color : blue;
 }
 `;
 const AutoServiceIcon = styled.div`
-font-size : 25px;
-width: 24px;
-height: 24px;
+font-size : 20px;
 `;
 const MoreBox = styled.div`
 display : flex;
 flex-direction : row;
-allign-items : center;
+justify-content : center;
+margin-right : 20px;
 border-style: solid;
 border-width: 1px;
+width 150px;
+align-items : center;
 :hover{
     color : blue;
 }
@@ -191,34 +200,36 @@ border-width: 1px;
 const PencilBox = styled.div`
 display : flex;
 flex-direction : row;
-allign-items : center;
+justify-content : center;
+margin-right : 20px;
 border-style: solid;
 border-width: 1px;
+width 150px;
+align-items : center;
 :hover{
     color : blue;
 }
 `;
 const PencilIcon = styled.div`
-font-size : 25px;
-width: 24px;
-height: 24px;
+font-size : 20px;
 `;
 
 const BusinessBox = styled.div`
 display : flex;
 flex-direction : row;
-allign-items : center;
+justify-content : center;
+margin-right : 20px;
 border-style: solid;
 border-width: 1px;
+width 150px;
+align-items : center;
 :hover{
     color : blue;
 }
 `;
 
 const BusinessIcon = styled.div`
-font-size : 25px;
-width: 24px;
-height: 24px;
+font-size : 20px;
 `;
 
 class Navbar extends React.Component{
@@ -244,6 +255,7 @@ class Navbar extends React.Component{
                     <TopContainer>
                     <TopBox>
                     <YelpLogoBox>
+                        <div>APPetizer-aperitif</div>
                         <YelpLogo className="fas fa-drumstick-bite"/>
                     </YelpLogoBox>
                     <SearchBox>
@@ -263,13 +275,13 @@ class Navbar extends React.Component{
 
               <Buttons className="fas fa-comment-alt"/>
                 
-                    <Buttons className="far fa-bell"/>
+                    <Buttons className="fas fa-bell"/>
                     </ButtonsBox>
                 
               
               <ProfileIcon className="fas fa-user-alt"/>
-              <ProfileDropdown>
-                P
+              <ProfileDropdown className="fas fa-caret-down">
+                
               </ProfileDropdown>
             </TopBox>
           </TopContainer>

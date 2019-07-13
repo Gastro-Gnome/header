@@ -22,6 +22,13 @@ font-size: 21px;
 line-height: 1.28571em;
 color: #d32323;
 `;
+const DetailViewBox = styled.button`
+display : flex;
+flex-direction : row;
+`;
+const DetailViewIcon = styled.div`
+margin-right : 5px;
+`;
 Modal.setAppElement('#app')
 
 class DetailView extends React.Component {
@@ -52,7 +59,10 @@ class DetailView extends React.Component {
   render() {
     return (
       <div>
-        <button className = "button#detailViewModal" onClick={this.openModal}>Details</button>
+        <DetailViewBox className = "button#detailViewModal" onClick={this.openModal}>
+<DetailViewIcon className="fas fa-chart-bar"/>
+<div>Details</div>
+        </DetailViewBox>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -61,7 +71,7 @@ class DetailView extends React.Component {
           contentLabel="Example Modal"
         >
             
-          <h2 ref={subtitle => this.subtitle = subtitle}><Ratings>Rating Details</Ratings>          <button onClick={this.closeModal}>close</button></h2>
+          <h2 border-bottom="1px solid black" ref={subtitle => this.subtitle = subtitle}><Ratings>Rating Details</Ratings>          <button onClick={this.closeModal}>close</button></h2>
           
           <form>
             <input />

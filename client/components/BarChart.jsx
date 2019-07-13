@@ -11,11 +11,12 @@ class BarChart extends React.Component {
         return (
             <div>
                 Overall Rating
-                <div>Yelping since 2013 with {this.props.data["reviews"].length} reviews</div>
+                <div>Appetizing since 2013 with {this.props.data["reviews"].length} reviews</div>
                 <svg className="chart" width="420" height="150" aria-labelledby="title desc" role="img">
                     <title id="title">A bar chart showing information</title>
                     <desc id="desc">4 apples; 8 bananas; 15 kiwis; 16 oranges; 23 lemons</desc>
-                    <g className="bar" fill="white" stroke="black">
+                    <g className="bar" fill="  background-image: linear-gradient(to right, red , yellow);
+" stroke="black">
                         <rect width="40" height="19">5 stars  </rect>
                         <text x="45" y="9.5" dy=".35em">119</text>
                     </g>

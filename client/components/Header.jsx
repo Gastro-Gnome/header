@@ -3,17 +3,18 @@ import DetailView from './DetailView.jsx';
 import styled from 'styled-components';
 
 const HeaderBox = styled.div`
+    background-color : #e6e6e6;
     flex-direction : column;
     display: flex;
-    justify-content: center;
     align-items : center;
+    height : 450px;
 `;
 
 const TopBox = styled.div`
     flex-direction : row;
     display: flex;
-    height : px ;
     width : 850px;
+    margin-top : 15px;  
 `;
 
 const RestaurantName = styled.div`
@@ -51,20 +52,29 @@ const MiddleBox = styled.div`
 const LeftMiddleBox = styled.div`
 display : flex;
 flex-direction : row;
-align-items : flex-end;
+align-items : center;
 width : 900px;
 `;
-const Stars = styled.div`
-margin-right : 5px;
+const StarBox = styled.div`
+display : flex;
+flex-direction : row;
+align-items : center
+width : 30%
+margin-right : 10px;
 `;
+
+const StarIcon = styled.img`
+height : 100%
+width : 100%
+`;
+
 const ReviewAmount = styled.div`
 display: block;
-    float: left;
     color: #666;
     font-weight: normal;
     text-shadow: 0 1px rgba(255,255,255,0.7);
+    font-size : 20px;
 `;
-
 const BottomBox = styled.div`
     display : flex;
     flex-direction : row;
@@ -75,27 +85,31 @@ const BottomBox = styled.div`
 const Price = styled.div`
 margin-right : 5px;
 letter-spacing: 1px;
+font-size : 15px;
 padding: 0;
     border: 0;
-    font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
 `;
+
 const Tags = styled.a`
-font-color : blue
-color : blue
+color : #0073bb;
+font-size : 20px;
+margin-right : 5px;
 `;
-const Edit = styled.div`
+const Edit = styled.button`
 `;
 const SideBox = styled.div`
     display : flex;
     flex-direction : row;
-    width : 700px;
+    width : 800px;
+    margin-left : 150px;
 `;
 const WriteReviewBox = styled.button`
     display : flex;
     flex-direction : row;
     align-items : center;
+    font-size : 13px;
+    font-weight : bold;
     color: #fff;
     background: #d32323;
     border: 1px solid #d32323;
@@ -112,7 +126,7 @@ const SideSubBox = styled.div`
     display : flex;
     flex-direction : row;
     align-items : center;
-    margin-left : 50px;
+    margin-left : 10px;
 `;
 const AddPhotoBox = styled.button`
     display : flex;
@@ -161,12 +175,24 @@ class Header extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            avg : this.avgReviews(),
+            avg : null,
+            starimg : null,
         };
     }
-    avgReviews(){
-        return this.props.data["reviews"].reduce((acc, curr) => acc + curr["rating"], 0)/this.props.data["reviews"].length;
+    componentDidMount(){
+        this.avgReviews(); 
     }
+    avgReviews(){
+        const stars = ["https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/regular_0%403x.png", "https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/regular_1%403x.png", "https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/regular_1_half%403x.png", "https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/regular_2%403x.png", "https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/regular_2_half%403x.png", "https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/regular_3%403x.png", "https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/regular_3_half%403x.png", "https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/regular_4%403x.png", "https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/regular_4_half%403x.png", "https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/regular_5%403x.png"]
+        const avg = this.props.data["reviews"].reduce((acc, curr) => acc + curr["rating"], 0)/this.props.data["reviews"].length;
+        console.log(avg);
+        const rounded = Math.round(avg*2)/2;
+        console.log(rounded);
+        this.setState({avg : avg, starimg : stars[rounded/0.5-1]})
+        return this.props.data["reviews"].reduce((acc, curr) => acc + curr["rating"], 0)/this.props.data["reviews"].length;
+
+    }
+
     render(){
         return(
             <div>
@@ -180,10 +206,13 @@ class Header extends React.Component{
                     </TopBox>
                     <MiddleBox>
                         <LeftMiddleBox>
-                        <Stars>{this.state.avg}Ratings</Stars>
+                            <StarBox>
+                            {this.state.starimg ? <StarIcon src={this.state.starimg}/> : <div></div>}
+                            </StarBox>
                         <ReviewAmount>
                         {this.props.data["reviews"].length} reviews
                         </ ReviewAmount>
+
                         <DetailView id="#detailViewElement" data={this.props.data}/>
                         </LeftMiddleBox>
                         <SideBox>
@@ -211,12 +240,12 @@ class Header extends React.Component{
                     </MiddleBox>
                     <BottomBox>
                         <Price>
-                            {this.props.data["priceRating"]}
+                            {this.props.data["priceRating"]} •
                         </Price>
                         <Tags href="https://www.yelp.com/c/sf/restaurants">
                         {this.props.data["tags"]}
                         </Tags>
-                        <Edit />
+                        <Edit>Edit</Edit>
                     </BottomBox>
                 </HeaderBox>
             </div>

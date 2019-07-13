@@ -34,7 +34,7 @@ app.get('/header/:id', (req, res) => {
             console.log(err);
             res.end();
         } else{
-            console.log(result)
+            //console.log(result)
             res.send(result);
         }
     })
