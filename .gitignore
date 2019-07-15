@@ -1,7 +1,6 @@
 node_modules
-public/bundle.js
-bundle.js
-secrets.js
+/public/bundle.js
+secret.js
 .DS_Store
-client/.DS_Store
+/client/.DS_Store
 package-lock.json
