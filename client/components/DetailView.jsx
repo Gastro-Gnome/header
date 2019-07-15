@@ -55,7 +55,7 @@ position: absolute;
     cursor: pointer;
     opacity: 0.5;
 `;
-Modal.setAppElement(document.getElementById('app'));
+Modal.setAppElement(document.getElementById('header'));
 
 class DetailView extends React.Component {
   constructor(props) {
