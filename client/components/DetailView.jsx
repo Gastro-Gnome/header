@@ -14,6 +14,9 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
     width: '500px',
     height: '600px'
+  },
+  overlay : {
+    background: 'rgba(0,0,0,0.7)',
   }
 };
 

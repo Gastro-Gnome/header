@@ -151,6 +151,7 @@ class LineChart extends React.Component {
                         <line x1="10" y1="120" x2="510" y2="120" stroke="gray" strokeWidth="0.5" />
                         <line x1="10" y1="160" x2="510" y2="160" stroke="gray" strokeWidth="0.5" />
                         <line x1="10" y1="200" x2="510" y2="200" stroke="gray" strokeWidth="0.5" />
+                    
                     </svg>
 
                 </LineChartBox> : <div></div>}
@@ -158,5 +159,5 @@ class LineChart extends React.Component {
         )
     };
 }
-
+//fill : "red" opacity : 50%
 export default LineChart;

@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import DetailView from './DetailView.jsx';
 import GoogleMapView from './GoogleMapView.jsx';
+import Share from './Share.jsx';
+import Save from './Save.jsx';
 
 const HeaderBox = styled.div`
     background-color : #e6e6e6;
@@ -138,34 +140,8 @@ const AddPhotoBox = styled.button`
 const AddPhotoIcon = styled.div`
     margin-right : 2px;
 `;
-const ShareBox = styled.button`
-    display : flex;
-    flex-direction : row;
-    color: #666;
-    background: #fff;
-    border: 1px solid #ccc;
-    background-image: none;
-    background-repeat: no-repeat;
-    transition: all 0.6s;
-    transition-property: background-color, background-position, background-size, border-color;
-`;
-const ShareIcon = styled.div`
-    margin-right : 2px;
-`;
-const SaveBox = styled.button`
-    display : flex;
-    flex-direction : row;
-    color: #666;
-    background: #fff;
-    border: 1px solid #ccc;
-    background-image: none;
-    background-repeat: no-repeat;
-    transition: all 0.6s;
-    transition-property: background-color, background-position, background-size, border-color;
-`;
-const SaveIcon = styled.div`
-    margin-right : 2px;
-`;
+
+
 const BotBox = styled.div`
     margin-top : 50px;
     width : 1050px;
@@ -231,14 +207,8 @@ class Header extends React.Component{
                                     <AddPhotoIcon className="fas fa-camera"/>
                                     <div>Add Photo</div>
                                 </AddPhotoBox>
-                                <ShareBox>
-                                    <ShareIcon className="fas fa-external-link-alt"/>
-                                    <div>Share</div>
-                                </ShareBox>
-                                <SaveBox>
-                                    <SaveIcon className="fas fa-bookmark"/>
-                                    <div>Save</div>
-                                </SaveBox>
+                                    <Share />
+<Save />
                             </SideSubBox>
                         </SideBox>
                     </MiddleBox>

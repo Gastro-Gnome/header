@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const getData = require('../db/index.js').getData;
 const getOne = require('../db/index.js').getOne;
 const app = express();
-const port = 5000;
+const port = 3002;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../public'));
