@@ -73,16 +73,7 @@ class Save extends React.Component {
           contentLabel="Example Modal"
         >
  
-          <h2 ref={subtitle => this.subtitle = subtitle}>Hello</h2>
-          <button onClick={this.closeModal}>close</button>
-          <div>I am a modal</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
+          <h2 ref={subtitle => this.subtitle = subtitle}>Save</h2>
         </Modal>
       </div>
     );
