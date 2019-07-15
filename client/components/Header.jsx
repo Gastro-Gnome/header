@@ -94,7 +94,7 @@ const Edit = styled.button`
 const SideBox = styled.div`
     display : flex;
     flex-direction : row;
-    width : 900px;
+    width : 950px;
     margin-left : 250px;
 `;
 const WriteReviewBox = styled.button`
@@ -136,7 +136,7 @@ const AddPhotoBox = styled.button`
     transition-property: background-color, background-position, background-size, border-color;
 `;
 const AddPhotoIcon = styled.div`
-
+    margin-right : 2px;
 `;
 const ShareBox = styled.button`
     display : flex;
@@ -150,7 +150,7 @@ const ShareBox = styled.button`
     transition-property: background-color, background-position, background-size, border-color;
 `;
 const ShareIcon = styled.div`
-
+    margin-right : 2px;
 `;
 const SaveBox = styled.button`
     display : flex;
@@ -164,6 +164,7 @@ const SaveBox = styled.button`
     transition-property: background-color, background-position, background-size, border-color;
 `;
 const SaveIcon = styled.div`
+    margin-right : 2px;
 `;
 const BotBox = styled.div`
     margin-top : 50px;
