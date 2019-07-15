@@ -16,12 +16,11 @@ var generateReviews = function(){ //generate reviews '2019-06-30'
 }
 const prices = ["$", "$$", "$$$", "$$$$", "$$$$$"]
 for(var i = 0; i < 100; i++){//generate restaurants
-    restaurantEntries.push({"name" : faker.company.companyName(), "priceRating" : prices[faker.random.number({min:0, max:4})],"tags" : faker.random.word() + ", " + faker.random.word(), "latitude" : faker.address.latitude(), "longitude" : faker.address.longitude(), "phone" : faker.phone.phoneNumberFormat(1), "website" : faker.internet.url(), "reviews" : generateReviews()})
+    restaurantEntries.push({"name" : faker.company.companyName(), "priceRating" : prices[faker.random.number({min:0, max:4})],"tags" : faker.random.word() + ", " + faker.random.word(), "address" : faker.address.streetAddress(), "latitude" : faker.address.latitude(), "longitude" : faker.address.longitude(), "phone" : faker.phone.phoneNumberFormat(1), "website" : faker.internet.url(), "reviews" : generateReviews()})
 }
 
 const insertRestaurant = function(){
     Restaurant.create(restaurantEntries)
-        //.then(()=> db.disconnect());
 };
 
 insertRestaurant();

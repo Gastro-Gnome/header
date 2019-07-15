@@ -1,92 +1,159 @@
 import React from 'react';
-//const points = ["0,100", "20,60", "40,80"];
+import styled from 'styled-components';
 
+const LineChartLabel = styled.text`
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans serif;
+  color: #666666;
+  font-size: 11px;
+`;
+const LineChartBox = styled.div`
+    margin-bottom : 50px;
+`;
+const MonthlyTrend = styled.div`
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-weight: bold;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+`;
 class LineChart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            currentYear: null,
             data: [
-                {month : "Jan", avg : this.storeReviews("Jan").length !== 0  ? (Math.round(this.storeReviews("Jan").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("Jan").length*2)/2) : 0},
-                {month : "Feb", avg : this.storeReviews("Feb").length !== 0  ? (Math.round(this.storeReviews("Feb").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("Feb").length*2)/2) : 0},
-                {month : "Mar", avg : this.storeReviews("Mar").length !== 0  ? (Math.round(this.storeReviews("Mar").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("Mar").length*2)/2) : 0},
-                {month : "Apr", avg : this.storeReviews("Apr").length !== 0  ? (Math.round(this.storeReviews("Apr").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("Apr").length*2)/2) : 0},
-                {month : "May", avg : this.storeReviews("May").length !== 0  ? (Math.round(this.storeReviews("May").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("May").length*2)/2) : 0},
-                {month : "Jun", avg : this.storeReviews("Jun").length !== 0  ? (Math.round(this.storeReviews("Jun").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("Jun").length*2)/2) : 0},
-                {month : "Jul", avg : this.storeReviews("Jul").length !== 0  ? (Math.round(this.storeReviews("Jul").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("Jul").length*2)/2) : 0},
-                {month : "Aug", avg : this.storeReviews("Aug").length !== 0  ? (Math.round(this.storeReviews("Aug").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("Aug").length*2)/2) : 0},
-                {month : "Sep", avg : this.storeReviews("Sep").length !== 0  ? (Math.round(this.storeReviews("Sep").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("Sep").length*2)/2) : 0},
-                {month : "Oct", avg : this.storeReviews("Oct").length !== 0  ? (Math.round(this.storeReviews("Oct").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("Oct").length*2)/2) : 0},
-                {month : "Nov", avg : this.storeReviews("Nov").length !== 0  ? (Math.round(this.storeReviews("Nov").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("Nov").length*2)/2) : 0},
-                {month : "Dec", avg : this.storeReviews("Dec").length !== 0  ? (Math.round(this.storeReviews("Dec").reduce((acc, curr) => acc + curr["rating"], 0)/this.storeReviews("Dec").length*2)/2) : 0},
+                { month: "Jan", avg: this.storeReviews("Jan", this.props.currentYear).length !== 0 ? (Math.round(this.storeReviews("Jan", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Jan", "2015").length * 2) / 2) : 0 },
+                { month: "Feb", avg: this.storeReviews("Feb", "2015").length !== 0 ? (Math.round(this.storeReviews("Feb", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Feb", "2015").length * 2) / 2) : 0 },
+                { month: "Mar", avg: this.storeReviews("Mar", "2015").length !== 0 ? (Math.round(this.storeReviews("Mar", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Mar", "2015").length * 2) / 2) : 0 },
+                { month: "Apr", avg: this.storeReviews("Apr", "2015").length !== 0 ? (Math.round(this.storeReviews("Apr", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Apr", "2015").length * 2) / 2) : 0 },
+                { month: "May", avg: this.storeReviews("May", "2015").length !== 0 ? (Math.round(this.storeReviews("May", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("May", "2015").length * 2) / 2) : 0 },
+                { month: "Jun", avg: this.storeReviews("Jun", "2015").length !== 0 ? (Math.round(this.storeReviews("Jun", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Jun", "2015").length * 2) / 2) : 0 },
+                { month: "Jul", avg: this.storeReviews("Jul", "2015").length !== 0 ? (Math.round(this.storeReviews("Jul", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Jul", "2015").length * 2) / 2) : 0 },
+                { month: "Aug", avg: this.storeReviews("Aug", "2015").length !== 0 ? (Math.round(this.storeReviews("Aug", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Aug", "2015").length * 2) / 2) : 0 },
+                { month: "Sep", avg: this.storeReviews("Sep", "2015").length !== 0 ? (Math.round(this.storeReviews("Sep", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Sep", "2015").length * 2) / 2) : 0 },
+                { month: "Oct", avg: this.storeReviews("Oct", "2015").length !== 0 ? (Math.round(this.storeReviews("Oct", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Oct", "2015").length * 2) / 2) : 0 },
+                { month: "Nov", avg: this.storeReviews("Nov", "2015").length !== 0 ? (Math.round(this.storeReviews("Nov", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Nov", "2015").length * 2) / 2) : 0 },
+                { month: "Dec", avg: this.storeReviews("Dec", "2015").length !== 0 ? (Math.round(this.storeReviews("Dec", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Dec", "2015").length * 2) / 2) : 0 },
             ],
-            points : null
+            points: null
         }
+        this.storeReviews = this.storeReviews.bind(this);
+        this.createPoints = this.createPoints.bind(this);
+        this.changeYear = this.changeYear.bind(this);
     }
 
-    componentDidMount(){   
+    componentDidMount() {
         //console.log(this.storeReviews("Mar"))
-        for(var i = 0; i < this.state.data.length; i++){
-
-            console.log(this.state.data[i].avg);
-        }
-        this.setState({points : this.createPoints()})
-        console.log(this.state.points);
+        // for(var i = 0; i < this.state.data.length; i++){
+        //     console.log(this.state.data[i].avg);
+        // }
+        this.setState({ points: this.createPoints(), currentYear: this.props.currentYear })
 
     }
 
-    storeReviews(str){
+    storeReviews(month, year) {
         const arr = [];
-        this.props.data["reviews"].forEach((item) => item["date"].includes(str) ? arr.push(item) : item);
+        this.props.data["reviews"].forEach((item) => item["date"].includes(month) && item["date"].includes(year) ? arr.push(item) : item);
         //console.log(arr);
         return arr;
     }
-    createPoints(){
+
+    createPoints() {
         const arr = [];
-        for(var i = 0; i < this.state.data.length; i++){
-            arr.push( ((i/11)*500).toString() + "," + (200 - this.state.data[i].avg * 200/5).toString())
+        for (var i = 0; i < this.state.data.length; i++) {
+            arr.push(((i / 11) * 500 + 10).toString() + "," + (200 - this.state.data[i].avg * 200 / 5).toString())
         }
+        console.log("LINE CHART POINTS ARR: ");
         console.log(arr);
         return arr;
     }
+
+    changeYear(year) {
+        this.setState({ currentYear: year })
+    }
+
     render() {
         return (
             <div>
 
-                LineChart here
-        <svg viewBox="0 0 500 200" className="chart graph">
-            <g>
+                {this.state.points && this.state.currentYear ? <LineChartBox>
+                    <MonthlyTrend>
 
-        <circle>cx="200" cy="100 r="200" stroke="red" strokeWidth="1"</circle>
-            </g>
 
-                    <polyline
-                        fill="none"
-                        stroke="red"
-                        strokeWidth="2"
-                        points={this.state.points ? this.state.points.join("\n") : <div></div>}//this.state.points
-                    />                
+                        Monthly Trend
+                    </MonthlyTrend>
 
-                    <line x1="0" y1="0" x2="0" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="45.45" y1="0" x2="45.45" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="90.91" y1="0" x2="90.91" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="136.36" y1="0" x2="136.36" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="181.82" y1="0" x2="181.82" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="227.27" y1="0" x2="227.27" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="272.73" y1="0" x2="272.73" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="318.18" y1="0" x2="318.18" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="363.64" y1="0" x2="363.64" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="409.09" y1="0" x2="409.09" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="454.55" y1="0" x2="454.55" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="500" y1="0" x2="500" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="0" y1="0" x2="500" y2="0" stroke="gray" strokeWidth="0.5" />
-                    <line x1="0" y1="200" x2="500" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <line x1="0" y1="40" x2="500" y2="40" stroke="gray" strokeWidth="0.5" />
-                    <line x1="0" y1="80" x2="500" y2="80" stroke="gray" strokeWidth="0.5" />
-                    <line x1="0" y1="120" x2="500" y2="120" stroke="gray" strokeWidth="0.5" />
-                    <line x1="0" y1="160" x2="500" y2="160" stroke="gray" strokeWidth="0.5" />
-                    <line x1="0" y1="200" x2="500" y2="200" stroke="gray" strokeWidth="0.5" />
-                    <text x="0" y="100">A</text>
-                </svg>
+                    <svg viewBox="0 0 550 250" className="chart graph">
+
+                        <g className="labels y-labels">
+                            <LineChartLabel x="0" y="0">5</LineChartLabel>
+                            <LineChartLabel x="0" y="40">4</LineChartLabel>
+                            <LineChartLabel x="0" y="80">3</LineChartLabel>
+                            <LineChartLabel x="0" y="120">2</LineChartLabel>
+                            <LineChartLabel x="0" y="160">1</LineChartLabel>
+                            <LineChartLabel x="0" y="200">0</LineChartLabel>
+                        </g>
+
+                        <g className="data" data-setname="average-monthly-star">
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[0].substr(0, this.state.points[0].indexOf(','))} cy={this.state.points[0].substr(this.state.points[0].indexOf(',') + 1, this.state.points[0].length)} r="4"></circle>
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[1].substr(0, this.state.points[1].indexOf(','))} cy={this.state.points[1].substr(this.state.points[1].indexOf(',') + 1, this.state.points[1].length)} r="4"></circle>
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[2].substr(0, this.state.points[2].indexOf(','))} cy={this.state.points[2].substr(this.state.points[2].indexOf(',') + 1, this.state.points[2].length)} r="4"></circle>
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[3].substr(0, this.state.points[3].indexOf(','))} cy={this.state.points[3].substr(this.state.points[3].indexOf(',') + 1, this.state.points[3].length)} r="4"></circle>
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[4].substr(0, this.state.points[4].indexOf(','))} cy={this.state.points[4].substr(this.state.points[4].indexOf(',') + 1, this.state.points[4].length)} r="4"></circle>
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[5].substr(0, this.state.points[5].indexOf(','))} cy={this.state.points[5].substr(this.state.points[5].indexOf(',') + 1, this.state.points[5].length)} r="4"></circle>
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[6].substr(0, this.state.points[6].indexOf(','))} cy={this.state.points[6].substr(this.state.points[6].indexOf(',') + 1, this.state.points[6].length)} r="4"></circle>
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[7].substr(0, this.state.points[7].indexOf(','))} cy={this.state.points[7].substr(this.state.points[7].indexOf(',') + 1, this.state.points[7].length)} r="4"></circle>
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[8].substr(0, this.state.points[8].indexOf(','))} cy={this.state.points[8].substr(this.state.points[8].indexOf(',') + 1, this.state.points[8].length)} r="4"></circle>
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[9].substr(0, this.state.points[9].indexOf(','))} cy={this.state.points[9].substr(this.state.points[9].indexOf(',') + 1, this.state.points[9].length)} r="4"></circle>
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[10].substr(0, this.state.points[10].indexOf(','))} cy={this.state.points[10].substr(this.state.points[10].indexOf(',') + 1, this.state.points[10].length)} r="4"></circle>
+                            <circle stroke="red" fill="white" strokeWidth="2" cx={this.state.points[11].substr(0, this.state.points[11].indexOf(','))} cy={this.state.points[11].substr(this.state.points[11].indexOf(',') + 1, this.state.points[11].length)} r="4"></circle>
+                        </g>
+
+
+                        <g className="labels x-labels">
+                            <LineChartLabel x="0" y="220">Jan</LineChartLabel>
+                            <LineChartLabel x="45.45" y="220">Feb</LineChartLabel>
+                            <LineChartLabel x="90.90" y="220">Mar</LineChartLabel>
+                            <LineChartLabel x="136.36" y="220">Apr</LineChartLabel>
+                            <LineChartLabel x="181.82" y="220">May</LineChartLabel>
+                            <LineChartLabel x="227.27" y="220">Jun</LineChartLabel>
+                            <LineChartLabel x="272.73" y="220">Jul</LineChartLabel>
+                            <LineChartLabel x="318.18" y="220">Aug</LineChartLabel>
+                            <LineChartLabel x="363.64" y="220">Sep</LineChartLabel>
+                            <LineChartLabel x="409.09" y="220">Oct</LineChartLabel>
+                            <LineChartLabel x="454.55" y="220">Nov</LineChartLabel>
+                            <LineChartLabel x="500" y="220">Dec</LineChartLabel>
+                        </g>
+
+                        <polyline
+                            fill="none"
+                            stroke="red"
+                            strokeWidth="2"
+                            points={this.state.points ? this.state.points.join("\n") : <div></div>}//this.state.points
+                        />
+
+                        <line x1="10" y1="0" x2="10" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="55.45" y1="0" x2="55.45" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="100.91" y1="0" x2="100.91" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="146.36" y1="0" x2="146.36" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="191.82" y1="0" x2="191.82" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="237.27" y1="0" x2="237.27" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="282.73" y1="0" x2="282.73" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="328.18" y1="0" x2="328.18" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="373.64" y1="0" x2="373.64" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="419.09" y1="0" x2="419.09" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="464.55" y1="0" x2="464.55" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="510" y1="0" x2="510" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="10" y1="0" x2="510" y2="0" stroke="gray" strokeWidth="0.5" />
+                        <line x1="10" y1="200" x2="50" y2="200" stroke="gray" strokeWidth="0.5" />
+                        <line x1="10" y1="40" x2="510" y2="40" stroke="gray" strokeWidth="0.5" />
+                        <line x1="10" y1="80" x2="510" y2="80" stroke="gray" strokeWidth="0.5" />
+                        <line x1="10" y1="120" x2="510" y2="120" stroke="gray" strokeWidth="0.5" />
+                        <line x1="10" y1="160" x2="510" y2="160" stroke="gray" strokeWidth="0.5" />
+                        <line x1="10" y1="200" x2="510" y2="200" stroke="gray" strokeWidth="0.5" />
+                    </svg>
+
+                </LineChartBox> : <div></div>}
             </div>
         )
     };
