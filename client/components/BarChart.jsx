@@ -63,40 +63,41 @@ class BarChart extends React.Component {
 
                 Appetizing since 2015 with {this.props.data["reviews"].length} reviews
                 </Appetizing>
-                <svg className="chart" width="500" height="200" aria-labelledby="title desc" role="img">
+                <svg className="chart" width="500" height="100" aria-labelledby="title desc" role="img">
                     <title id="title">A bar chart showing information</title>
                     <desc id="desc"></desc>
                     <g className="bar" fill="#fcd6d3" 
                     stroke="#fff7cc" >
-                        <rect width={(this.state.data.fiveCount*10).toString()} height="19">{(this.state.data.fiveCount).toString()}  </rect>
+                        <rect width={(this.state.data.fiveCount).toString()*5} height="19">{(this.state.data.fiveCount).toString()}  </rect>
                     </g>
                         <text x="0" y="9.5" dy=".35em" fontWeight= "bold">5 Stars</text>
-                        <text x={(this.state.data.fiveCount*10).toString()}y="9.5" dy=".35em" fontWeight= "bold"> {(this.state.data.fiveCount).toString()}</text>
+                        <text x={(this.state.data.fiveCount).toString()*5}y="9.5" dy=".35em" fontWeight= "bold"> {(this.state.data.fiveCount).toString()}</text>
                     <g className="bar" fill="#fcd6d3" 
                    stroke="#fff7cc" >
-                        <rect width={(this.state.data.fourCount*10).toString()} height="19" y="20">{(this.state.data.fourCount).toString()}</rect>
+                        <rect width={(this.state.data.fourCount).toString()*5} height="19" y="20">{(this.state.data.fourCount).toString()}</rect>
                     </g>
                         <text x="0" y="28" dy=".35em" fontWeight= "bold">4 stars</text>
-                        <text x={(this.state.data.fourCount*10).toString()}y="28" dy=".35em" fontWeight= "bold"> {(this.state.data.fourCount).toString()}</text>
+                        <text x={(this.state.data.fourCount).toString()*5}y="28" dy=".35em" fontWeight= "bold"> {(this.state.data.fourCount).toString()}</text>
                     <g className="bar" fill="#fcd6d3" 
                     stroke="#fff7cc" >
-                        <rect width={(this.state.data.threeCount*10).toString()} height="19" y="40">{(this.state.data.threeCount).toString()}</rect>
+                        <rect width={(this.state.data.threeCount).toString()*5} height="19" y="40">{(this.state.data.threeCount).toString()}</rect>
                     </g>
                         <text x="0" y="48" dy=".35em" fontWeight= "bold">3 stars </text>
-                        <text x={(this.state.data.threeCount*10).toString()} y="48" dy=".35em" fontWeight= "bold"> {(this.state.data.threeCount).toString()}</text>
+                        <text x={(this.state.data.threeCount).toString()*5} y="48" dy=".35em" fontWeight= "bold"> {(this.state.data.threeCount).toString()}</text>
                     <g className="bar" fill="#fcd6d3" stroke="#fff7cc" >
-                        <rect width={(this.state.data.twoCount*10).toString()} height="19" y="60">{(this.state.data.twoCount).toString()}</rect>
+                        <rect width={(this.state.data.twoCount).toString()*5} height="19" y="60">{(this.state.data.twoCount).toString()}</rect>
                     </g>
                         <text x="0" y="68" dy=".35em" fontWeight= "bold">2 stars</text>
-                        <text x={(this.state.data.twoCount*10).toString()} y="68" dy=".35em" fontWeight= "bold"> {(this.state.data.twoCount).toString()}</text>
+                        <text x={(this.state.data.twoCount).toString()*5} y="68" dy=".35em" fontWeight= "bold"> {(this.state.data.twoCount).toString()}</text>
 
 
                     <g className="bar" fill="#fcd6d3" stroke="#fff7cc" >
-                        <rect width={(this.state.data.oneCount*10).toString()} height="19" y="80"></rect>
+                        <rect width={(this.state.data.oneCount).toString()*5} height="19" y="80"></rect>
                     </g>
                         <text x="0" y="88" dy=".35em" fontWeight= "bold">1 star</text>
-                        <text x={(this.state.data.oneCount*10).toString()} y="88" dy=".35em" fontWeight= "bold"> {(this.state.data.oneCount).toString()}</text>
+                        <text x={(this.state.data.oneCount).toString()*5} y="88" dy=".35em" fontWeight= "bold"> {(this.state.data.oneCount).toString()}</text>
                 </svg>
+                <div>We calculate the overall star rating using only reviews that our automated software currently recommends. Learn more.</div>
             </div>
 
         )

@@ -29,7 +29,7 @@ const customStyles = {
 };
  
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement(document.getElementById('app'));
+Modal.setAppElement(document.getElementById('header'));
  
 class Share extends React.Component {
   constructor() {
