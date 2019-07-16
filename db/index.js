@@ -9,6 +9,7 @@ var getData = function(cb){
     Restaurant.find()
         .then((data) => cb(null, data))
 }
+
 var getOne = function(id, cb){
     console.log('GET with id: ' + id + ' from db/index.js');
     Restaurant.find({_id : id})

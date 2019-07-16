@@ -15,7 +15,7 @@ class App extends React.Component {
     console.log('MOUNTED')
     this.retrieveData();
   }
-
+  
   retrieveData() { //initially first data entry
     fetch('/header/', {
       method: 'GET',

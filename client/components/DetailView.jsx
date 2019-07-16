@@ -63,7 +63,6 @@ class DetailView extends React.Component {
 
     this.state = {
       modalIsOpen: false,
-      currentYear : "2015"
     };
 
     this.openModal = this.openModal.bind(this);
@@ -82,7 +81,7 @@ class DetailView extends React.Component {
   closeModal() {
     this.setState({ modalIsOpen: false });
   }
-
+  
   render() {
     return (
       <div>
@@ -105,12 +104,8 @@ class DetailView extends React.Component {
           </CloseButton>
           </h2>
           <SectionHeader />
-          <button>2015</button>
-          <button>2019</button>
-          <button>2018</button>
-          <button>2017</button>
-          <button>2016</button>
-          <div><LineChart data={this.props.data} currentYear={this.state.currentYear}/></div>
+
+          <div><LineChart data={this.props.data} /></div>
           <div><BarChart data={this.props.data} /></div>
         </Modal>
       </div>
