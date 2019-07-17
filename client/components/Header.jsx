@@ -208,7 +208,7 @@ class Header extends React.Component{
                                     <div>Add Photo</div>
                                 </AddPhotoBox>
                                     <Share />
-<Save />
+                        <Save />
                             </SideSubBox>
                         </SideBox>
                     </MiddleBox>

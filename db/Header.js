@@ -15,6 +15,7 @@ const restaurantSchema =  new mongoose.Schema({
     "longitude" : String,
     "phone" : String,
     "website" : String,
+    "number" : Number,
 	"reviews" : [reviewSchema]
 })
 

@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser.text());
 
-app.get('/header', (req, res) => {
+app.get('/data', (req, res) => {
     //res.send('hey');
     console.log('On server/index.js GET for all Restaurant Data')
     getData((err, result) => {
@@ -23,7 +23,7 @@ app.get('/header', (req, res) => {
     })
 });
 
-app.get('/header/:id', (req, res) => {
+app.get('/:id', (req, res) => {
     //console.log('hi');
     //console.log(req.url)
     console.log('On server/index.js GET for one Restaurant Data value')
