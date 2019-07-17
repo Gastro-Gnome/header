@@ -47,8 +47,8 @@ class LineChart extends React.Component {
 
     createPoints() {
         var obj = {data: [
-            { month: "Jan", avg: this.storeReviews("Jan", this.state.currentYear).length !== 0 ? (Math.round(this.storeReviews("Jan", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Jan", "2015").length * 2) / 2) : 0 },
-            { month: "Feb", avg: this.storeReviews("Feb", this.state.currentYear).length !== 0 ? (Math.round(this.storeReviews("Feb", "2015").reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Feb", "2015").length * 2) / 2) : 0 },
+            { month: "Jan", avg: this.storeReviews("Jan", this.state.currentYear).length !== 0 ? (Math.round(this.storeReviews("Jan", this.state.currentYear).reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Jan", this.state.currentYear).length * 2) / 2) : 0 },
+            { month: "Feb", avg: this.storeReviews("Feb", this.state.currentYear).length !== 0 ? (Math.round(this.storeReviews("Feb", this.state.currentYear).reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Feb", this.state.currentYear).length * 2) / 2) : 0 },
             { month: "Mar", avg: this.storeReviews("Mar", this.state.currentYear).length !== 0 ? (Math.round(this.storeReviews("Mar", this.state.currentYear).reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Mar", this.state.currentYear).length * 2) / 2) : 0 },
             { month: "Apr", avg: this.storeReviews("Apr", this.state.currentYear).length !== 0 ? (Math.round(this.storeReviews("Apr", this.state.currentYear).reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("Apr", this.state.currentYear).length * 2) / 2) : 0 },
             { month: "May", avg: this.storeReviews("May", this.state.currentYear).length !== 0 ? (Math.round(this.storeReviews("May", this.state.currentYear).reduce((acc, curr) => acc + curr["rating"], 0) / this.storeReviews("May", this.state.currentYear).length * 2) / 2) : 0 },
