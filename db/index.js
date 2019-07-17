@@ -6,7 +6,7 @@ const Restaurant = require('./Header').Restaurant;
 
 var getData = function(cb){
     console.log('GET DATA from db/index.js')
-    Restaurant.find()
+    Restaurant.find({"number" : Math.floor(Math.random() * (100))})
         .then((data) => cb(null, data))
 }
 
