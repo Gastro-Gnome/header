@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://localhost/header'
+const mongoUri = 'mongodb://172.17.0.2:27017/header';
+//const mongoUri = 'mongodb://172.17.0.2/header';
+
 //mongoose.connect('mongodb://localhost/header', {useNewUrlParser: true});
-const db = mongoose.connect(mongoUri, { useNewUrlParser: true });
+const db = mongoose.connect(mongoUri, { useNewUrlParser: true })
 const Restaurant = require('./Header').Restaurant;
 
 var getData = function(cb){
@@ -13,9 +15,8 @@ var getData = function(cb){
 var getOne = function(id, cb){
     console.log('GET with id: ' + id + ' from db/index.js');
     Restaurant.find({_id : id})
-        .then((data) => cb(null, data));
+        .then((data) => cb(null, data))
 }
-
 /*
 db.once('open', function(){
     console.log('Connected with Mongoose');

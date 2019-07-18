@@ -20,7 +20,12 @@ for(var i = 0; i < 100; i++){//generate restaurants
 }
 
 const insertRestaurant = function(){
-    Restaurant.create(restaurantEntries)
+    Restaurant.create(restaurantEntries, function (err, small) {
+        if (err) console.log(err);
+        else{
+            mongoose.connection.close();
+        }
+      });
 };
 
 insertRestaurant();
