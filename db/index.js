@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://172.17.0.2:27017/header';
-//const mongoUri = 'mongodb://172.17.0.2/header';
+//const mongoUri = 'mongodb://172.17.0.2:27017/header';
+const mongoUri = 'mongodb://172.17.0.2/header';
 
 //mongoose.connect('mongodb://localhost/header', {useNewUrlParser: true});
 const db = mongoose.connect(mongoUri, { useNewUrlParser: true })
