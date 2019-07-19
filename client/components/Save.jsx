@@ -2,7 +2,6 @@ import React from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 
-
 const SaveViewBox = styled.button`
     display : flex;
     flex-direction : row;
@@ -37,7 +36,7 @@ class Save extends React.Component {
     super();
  
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
     };
  
     this.openModal = this.openModal.bind(this);
@@ -65,7 +64,7 @@ class Save extends React.Component {
             <SaveIcon className="fas fa-bookmark"/>
             <div>Save</div>
           </SaveViewBox>
-        <Modal
+        {/* <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
@@ -74,7 +73,7 @@ class Save extends React.Component {
         >
  
           <h2 ref={subtitle => this.subtitle = subtitle}>Save</h2>
-        </Modal>
+        </Modal> */}
       </div>
     );
   }

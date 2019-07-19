@@ -111,7 +111,6 @@ const RestaurantBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
-    border-style: solid;
     border-width: 1px;
     width 150px;
     align-items : center;
@@ -138,7 +137,6 @@ const HomeServiceBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
-    border-style: solid;
     border-width: 1px;
     width 150px;
     align-items : center;
@@ -155,7 +153,6 @@ const AutoServiceBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
-    border-style: solid;
     border-width: 1px;
     width 150px;
     align-items : center;
@@ -172,8 +169,6 @@ const MoreBox = styled.div`
     flex-direction : row;
     justify-content : center;
     margin-right : 80px;
-    border-style: solid;
-    border-width: 1px;
     width 100px;
     align-items : center;
     :hover{
@@ -185,7 +180,6 @@ const PencilBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
-    border-style: solid;
     border-width: 1px;
     width 150px;
     align-items : center;
@@ -202,7 +196,6 @@ const BusinessBox = styled.div`
     flex-direction : row;
     justify-content : center;
     margin-right : 20px;
-    border-style: solid;
     border-width: 1px;
     width 150px;
     align-items : center;

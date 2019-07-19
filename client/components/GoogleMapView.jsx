@@ -6,12 +6,14 @@ const GoogleBox = styled.div`
     border-style: solid;
     border-width: thin;
     width : 28%;
+    background-color : white;
 `;
 const MapBox = styled.div`
     display : flex;
     flex-direction : row;
     height : 200px;
     width : 100%;
+    color : -internal-root-color;
 `;
 const InfoBox = styled.div`
     display : flex;

@@ -17,7 +17,9 @@ class App extends React.Component {
   
   retrieveData() { //initially first data entry
     console.log('RETRIEVE DATA')
-    fetch('/header', {
+    console.log(window.location.pathname);
+    console.log('/header' + window.location.pathname)
+    fetch('/header' + window.location.pathname, {
       method: 'GET',
     })
       .then(res => res.json())
@@ -34,8 +36,7 @@ class App extends React.Component {
         <div>
           <Navbar />
         </div>
-        <div class = "ABC">
-          {/* {this.state.data ? <Header data={this.state.data} /> : <div></div>} */}
+        <div>
           {this.state.data ? <Header data={this.state.data}/> : <div />}
           </div>
       </div>

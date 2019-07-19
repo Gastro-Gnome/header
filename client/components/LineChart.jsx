@@ -17,12 +17,25 @@ const MonthlyTrend = styled.div`
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin-bottom : 10px;
 `;
+const YearButtonBox = styled.div`
+    display : flex;
+    flex-direction : row;
+    margin-left : 250px;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+`;
+const YearButton = styled.div`
+    margin-left : 10px;
+    &:hover {
+        cursor: pointer;
+        border-bottom : 3px solid#D43E29
+      }
+`;
 class LineChart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             currentYear: "2015",
-            points: null
+            points: null,
         }
         this.storeReviews = this.storeReviews.bind(this);
         this.createPoints = this.createPoints.bind(this);
@@ -77,11 +90,13 @@ class LineChart extends React.Component {
     render() {
         return (
             <div>
-            <button onClick={() => this.yearChange("2015")}>2015</button>
-            <button onClick={() => this.yearChange("2019")}>2019</button>
-            <button onClick={() => this.yearChange("2018")}>2018</button>
-            <button onClick={() => this.yearChange("2017")}>2017</button>
-            <button onClick={() => this.yearChange("2016")}>2016</button>
+                <YearButtonBox>
+                    <YearButton id="2015"onClick={() => this.yearChange("2015")}>2015</YearButton>
+                    <YearButton id="2019"onClick={() => this.yearChange("2019")}>2019</YearButton>
+                    <YearButton id="2018"onClick={() => this.yearChange("2018")}>2018</YearButton>
+                    <YearButton id="2017"onClick={() => this.yearChange("2017")}>2017</YearButton>
+                    <YearButton id="2016"onClick={() => this.yearChange("2016")}>2016</YearButton>
+                </YearButtonBox>
 
                 {this.state.points ? <LineChartBox>
                     <MonthlyTrend>
@@ -157,10 +172,12 @@ class LineChart extends React.Component {
                         <line x1="10" y1="120" x2="510" y2="120" stroke="gray" strokeWidth="0.5" />
                         <line x1="10" y1="160" x2="510" y2="160" stroke="gray" strokeWidth="0.5" />
                         <line x1="10" y1="200" x2="510" y2="200" stroke="gray" strokeWidth="0.5" />
-                    
+                        {/* <polygon points = "10 250 10 250 250 10 0 55 0 10 " fill = "red" opacity = "0.5"/> */}
+                        
+                        <polygon points = {this.state.points[0].replace(/,/g, ' ') + " " +  this.state.points[1].replace(/,/g, ' ') + " " + this.state.points[2].replace(/,/g, ' ') + " " +  this.state.points[3].replace(/,/g, ' ') + " " + this.state.points[4].replace(/,/g, ' ') + " " + this.state.points[5].replace(/,/g, ' ') + " " + this.state.points[6].replace(/,/g, ' ') + " " + this.state.points[7].replace(/,/g, ' ') + " " + this.state.points[8].replace(/,/g, ' ') + " " + this.state.points[9].replace(/,/g, ' ') + " " + this.state.points[10].replace(/,/g, ' ') + " " + this.state.points[11].replace(/,/g, ' ')+ " 510 200 10 200"} fill="red" opacity = "0.25"/>
                     </svg>
 
-                <div>Understand how a business’ rating changes month-to-month. Learn more.</div>
+                <div color = "#333"     font-family = "Helvetica Neue,Helvetica,Arial,sans-serif">Understand how a business’ rating changes month-to-month. Learn more.</div>
                 </LineChartBox> : <div></div>}
             </div>
         )

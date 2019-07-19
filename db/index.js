@@ -10,9 +10,9 @@ var getData = function(cb){
         .then((data) => cb(null, data))
 }
 
-var getOne = function(id, cb){
-    console.log('GET with id: ' + id + ' from db/index.js');
-    Restaurant.find({_id : id})
+var getOne = function(id, cb){//find one with defined id number from 1-100
+    console.log('GET with number ' + id + ' from db/index.js');
+    Restaurant.find({number : id})
         .then((data) => cb(null, data));
 }
 

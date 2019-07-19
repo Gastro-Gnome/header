@@ -6,7 +6,9 @@ const app = express();
 const port = 3002;
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static(__dirname + '/../public'));
+// app.use(express.static(":id"+ __dirname + '/../public'));
+app.use("/:id", express.static( __dirname + '/../public'));
+
 app.use(bodyParser.text());
 
 app.get('/header', (req, res) => {
@@ -23,12 +25,12 @@ app.get('/header', (req, res) => {
     })
 });
 
-app.get('/:id', (req, res) => {
+app.get('/header/:id', (req, res) => {
     //console.log('hi');
     //console.log(req.url)
     console.log('On server/index.js GET for one Restaurant Data value')
-    const url = req.url.slice(8, req.url.length);
-    //console.log(url);
+    const url = req.url.slice(8, req.url.length-1);
+    console.log(url);
     getOne(url, (err, result) => {
         if(err){
             console.log(err);
