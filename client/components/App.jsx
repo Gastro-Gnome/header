@@ -17,7 +17,7 @@ class App extends React.Component {
   
   retrieveData() { //initially first data entry
     console.log('RETRIEVE DATA')
-    fetch('/header/data', {
+    fetch('/header', {
       method: 'GET',
     })
       .then(res => res.json())

@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../public'));
 app.use(bodyParser.text());
 
-app.get('/data', (req, res) => {
+app.get('/header', (req, res) => {
     //res.send('hey');
     console.log('On server/index.js GET for all Restaurant Data')
     getData((err, result) => {

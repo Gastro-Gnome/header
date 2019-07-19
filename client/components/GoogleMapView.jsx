@@ -5,13 +5,12 @@ import GoogleMap from './GoogleMap.jsx';
 const GoogleBox = styled.div`
     border-style: solid;
     border-width: thin;
-    width : 35%;
-    height : 100%
+    width : 28%;
 `;
 const MapBox = styled.div`
     display : flex;
     flex-direction : row;
-    height : 300px;
+    height : 200px;
     width : 100%;
 `;
 const InfoBox = styled.div`
