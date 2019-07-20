@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Search from './Search.jsx';
 
 const Yelp = styled.div`
-    z-index : 7;
+    z-index : 1;
 `;
 const TopContainer = styled.div`
   background: #d32323;
@@ -22,15 +22,18 @@ const YelpLogoBox = styled.div`
   flex-direction : row; 
   color:white;
   font-family: cursive;
+  margin-right : 16px;
 `;
 const YelpLogo = styled.img`
-    height : 40px;
+    margin-top : 5px;
+    height : 50px;
+    margin-right : 3px;
 `;
 const SearchBox = styled.div`
   display: flex;
   flex-direction: row;
   height: 100%;
-  padding : 20px;
+  width : 100%;
 `;
 
 const FindIcon = styled.div`
@@ -39,6 +42,9 @@ const FindIcon = styled.div`
     color: #333;
     cursor: default;
     background-color : white;
+    font-size 13px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding : 5px;
 `;
 
 const NearIcon = styled.div`
@@ -47,6 +53,9 @@ const NearIcon = styled.div`
         color: #333;
         cursor: default;
         background-color : white;
+        font-size : 13px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        padding : 5px;
 `;
 const NearInput = styled.input`
   width : 250px;
@@ -60,6 +69,8 @@ const SearchIconBox = styled.button`
     background-color: #bd1f1f;
 `;
 const SearchIcon = styled.div`
+    height : 10px;
+    font-size : 18px;
 `;
 const SearchButton = styled.div`
     margin-left : 5px;
@@ -103,7 +114,9 @@ const BottomBox = styled.div`
     align-items : center;
     justify-content : center;
     width : 100%;
-    height : 30px;;
+    height : 30px;
+    font-size 13px;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 `;
 const RestaurantBox = styled.div`
     display : flex;
@@ -134,6 +147,7 @@ const HomeServiceBox = styled.div`
         color : blue;
     }
     height : 100%;
+    margin-right : 3px;
 `;
 const HomeServiceLogo = styled.div`
     font-size : 20px;
@@ -152,6 +166,7 @@ const AutoServiceBox = styled.div`
 `;
 const AutoServiceIcon = styled.div`
     font-size : 20px;
+    margin-right : 5px;
 `;
 const MoreBox = styled.div`
     display : flex;

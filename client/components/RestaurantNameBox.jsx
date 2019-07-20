@@ -1,6 +1,5 @@
 import React from 'react';
 import RestaurantListItem from './RestaurantListItem.jsx';
-import restaurantNames from '../RestaurantNames.js';
 import styled from 'styled-components';
 
 const Box = styled.div`
@@ -8,6 +7,7 @@ const Box = styled.div`
     flex-direction : column;
     z-index : 5;
     background-color : white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 `;
 const ResturantNameBox = ({names}) => (
     <Box>
