@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Search from './Search.jsx';
 
 const Yelp = styled.div`
+    z-index : 7;
 `;
 const TopContainer = styled.div`
   background: #d32323;
@@ -18,15 +20,16 @@ const YelpLogoBox = styled.div`
   font-size: 20px;
   display : flex;
   flex-direction : row; 
+  color:white;
+  font-family: cursive;
 `;
-const YelpLogo = styled.div`
-    font-size : 30px;
-    color:white;
+const YelpLogo = styled.img`
+    height : 40px;
 `;
 const SearchBox = styled.div`
   display: flex;
   flex-direction: row;
-  height: 50%;
+  height: 100%;
   padding : 20px;
 `;
 
@@ -37,16 +40,13 @@ const FindIcon = styled.div`
     cursor: default;
     background-color : white;
 `;
-const FindInput = styled.input`
-  width : 250px;
-  font-size : 13px;
-`;
+
 const NearIcon = styled.div`
-float: left;
-    font-weight: bold;
-    color: #333;
-    cursor: default;
-    background-color : white;
+    float: left;
+        font-weight: bold;
+        color: #333;
+        cursor: default;
+        background-color : white;
 `;
 const NearInput = styled.input`
   width : 250px;
@@ -95,8 +95,6 @@ const ProfileDropdown = styled.button`
 `;
 const BottomContainer = styled.div`
     background-color : #fafafa;
-    border-style: solid;
-    border-width: 0.1px;
     height:100%;
 `;
 const BottomBox = styled.div`
@@ -126,18 +124,10 @@ const RestaurantLogo = styled.div`
 const Chevron = styled.div`
     margin-left : 5px;
 `;
-
-const RestaurantDrop = styled.div`
-    background-color : blue;    
-    display : flex;
-    flex-wrap : wrap;
-    display : none;
-`;
 const HomeServiceBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
-    border-width: 1px;
     width 150px;
     align-items : center;
     :hover{
@@ -153,7 +143,6 @@ const AutoServiceBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
-    border-width: 1px;
     width 150px;
     align-items : center;
     :hover{
@@ -180,7 +169,6 @@ const PencilBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
-    border-width: 1px;
     width 150px;
     align-items : center;
     :hover{
@@ -196,7 +184,6 @@ const BusinessBox = styled.div`
     flex-direction : row;
     justify-content : center;
     margin-right : 20px;
-    border-width: 1px;
     width 150px;
     align-items : center;
     :hover{
@@ -213,7 +200,6 @@ class Navbar extends React.Component {
         super(props);
         this.state = {
             findQuery: "",
-            nearQuery: "",
         }
     }
     render() {
@@ -223,12 +209,12 @@ class Navbar extends React.Component {
                     <TopContainer>
                         <TopBox>
                             <YelpLogoBox>
-                                <div>Gastronome</div>
-                                <YelpLogo className="fas fa-drumstick-bite" />
+                                <YelpLogo src ="https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/images.png" />
+                                <div color="white">Gastro Gnome</div>
                             </YelpLogoBox>
                             <SearchBox>
                                 <FindIcon> Find </FindIcon>
-                                <FindInput placeholder="tacos, cheap dinner, Max's" />
+                                <Search placeholder="tacos, cheap dinner, Max's"/>
                                 <NearIcon> Near </NearIcon>
                                 <NearInput placeholder="Financial District, San Francisco, CA" />
                                 <SearchIconBox>
@@ -260,10 +246,9 @@ class Navbar extends React.Component {
                                 <RestaurantLogo className="fas fa-utensils" />
                                 Restaurants
                     <Chevron className="fas fa-chevron-down" />
-                                <RestaurantDrop>
-                                    <div>A</div>
-                                    <div>B</div>
-                                </RestaurantDrop>
+                        <div className="name-box">
+                            {/* <RestaurantNameBox /> */}
+                        </div>
                             </RestaurantBox>
                             <HomeServiceBox>
                                 <HomeServiceLogo className="fas fa-home" />

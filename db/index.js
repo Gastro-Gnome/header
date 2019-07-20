@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://172.17.0.2/header'; //for ec2
+const mongoUri = 'mongodb://localhost:27017/header'; //for localhost
+
+//const mongoUri = 'mongodb://172.17.0.2/header'; //for ec2
 // const mongoUri = 'mongodb://172.17.0.2:27017/header'; //for local
 
 //mongoose.connect('mongodb://localhost/header', {useNewUrlParser: true});
@@ -14,7 +16,7 @@ var getData = function(cb){
 
 var getOne = function(id, cb){//find one with defined id number from 1-100
     console.log('GET with number ' + id + ' from db/index.js');
-    Restaurant.find({number : id})
+    Restaurant.find({name : id})
         .then((data) => cb(null, data));
 }
 

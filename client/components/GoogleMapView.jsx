@@ -77,11 +77,11 @@ class GoogleMapView extends React.Component{
                     <InfoBox>
                         <LocationBox>
                             <LocationIcon className="fas fa-map-marker-alt"/>
-                            <div>{this.props.data["address"]}</div>
+                            <div href="www.google.com">{this.props.data["address"]}</div>
                         </LocationBox>
                         <DirectionBox>
                             <DirectionIcon className="fas fa-directions"/>
-                            <div>Get Directions</div>
+                            <a href="">Get Directions</a>
                         </DirectionBox>
                         <PhoneBox>
                             <PhoneIcon className="fas fa-phone-alt"/>
@@ -89,15 +89,15 @@ class GoogleMapView extends React.Component{
                         </PhoneBox>
                         <WebsiteBox>
                             <WebsiteIcon className="fas fa-location-arrow"/>
-                            <div>{this.props.data["website"]}</div>
+                            <a href="" >{this.props.data["website"]}</a>
                         </WebsiteBox>
                         <ReservationBox>
                             <ReservationIcon className="far fa-calendar-check"/>
-                            <div>Make a Reservation</div>
+                            <a href="">Make a Reservation</a>
                         </ReservationBox>
                         <SendPhoneBox>
                             <SendPhoneIcon className="fas fa-mobile-alt"/>
-                            <div>Send to your Phone</div>
+                            <a href="">Send to your Phone</a>
                         </SendPhoneBox>
                     </InfoBox>
                 </GoogleBox>
