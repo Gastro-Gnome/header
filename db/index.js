@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://172.17.0.2:27017/header';
+const mongoUri = 'mongodb://172.17.0.2/header'; //for ec2
+// const mongoUri = 'mongodb://172.17.0.2:27017/header'; //for local
+
 //mongoose.connect('mongodb://localhost/header', {useNewUrlParser: true});
 const db = mongoose.connect(mongoUri, { useNewUrlParser: true });
 const Restaurant = require('./Header').Restaurant;

@@ -223,7 +223,7 @@ class Navbar extends React.Component {
                     <TopContainer>
                         <TopBox>
                             <YelpLogoBox>
-                                <div>APPetizer</div>
+                                <div>Gastronome</div>
                                 <YelpLogo className="fas fa-drumstick-bite" />
                             </YelpLogoBox>
                             <SearchBox>
