@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://172.17.0.2/header'; //for ec2
+const mongoUri = 'mongodb://database/header'; //for ec2
 
 //const mongoUri = 'mongodb://172.17.0.2/header'; //for ec2
 // const mongoUri = 'mongodb://172.17.0.2:27017/header'; //for local
@@ -29,7 +29,7 @@ db.once('open', function(){
 Restaurant.insertMany(seed.restaurantEntries, function(err, docs){
 
 })
-Restaurant.insertMany(seed.reviewEntries, function(err, docs){
+Restaurant.insertMany(seed.reviewEntr†ies, function(err, docs){
     
 })
 */

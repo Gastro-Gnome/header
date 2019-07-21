@@ -17,13 +17,13 @@ class App extends React.Component {
   
   retrieveData() { //initially first data entry
     console.log('RETRIEVE DATA')
-    console.log(window.location.pathname);
-    console.log('/header' + window.location.pathname)
-    fetch('/header' + window.location.pathname, {
+    //console.log(window.location.pathname);
+    fetch('header', {
       method: 'GET',
     })
       .then(res => res.json())
       .then((res) => this.setState({ data: res[0] }))
+      .catch((err) => console.log(err))
   }
 
   render() {
