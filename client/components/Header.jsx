@@ -6,11 +6,12 @@ import Share from './Share.jsx';
 import Save from './Save.jsx';
 
 const HeaderBox = styled.div`
-    background-color : #e6e6e6;
+    background-color : #f5f5f5;
     flex-direction : column;
     display: flex;
     align-items : center;
     height : 450px;
+    z-index : 1;
 `;
 const TopBox = styled.div`
     flex-direction : row;
@@ -178,7 +179,7 @@ class Header extends React.Component{
             <div>
                 <HeaderBox>
                     <TopBox>
-                        <RestaurantName>{this.props.data["name"]}</RestaurantName>
+                        <RestaurantName>{this.props.data["name"].split('-').map((val) => val[0].toUpperCase()+ val.slice(1)).join(' ')}</RestaurantName>
                         <ClaimedBox>
                         <CheckIcon className = "fas fa-check-circle"/>
                         <div>Claimed</div>

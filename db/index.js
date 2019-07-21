@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://localhost/header'
+const mongoUri = 'mongodb://database/header'; //for ec2
+
+//const mongoUri = 'mongodb://172.17.0.2/header'; //for ec2
+// const mongoUri = 'mongodb://172.17.0.2:27017/header'; //for local
+
 //mongoose.connect('mongodb://localhost/header', {useNewUrlParser: true});
 const db = mongoose.connect(mongoUri, { useNewUrlParser: true });
 const Restaurant = require('./Header').Restaurant;
@@ -10,9 +14,9 @@ var getData = function(cb){
         .then((data) => cb(null, data))
 }
 
-var getOne = function(id, cb){
-    console.log('GET with id: ' + id + ' from db/index.js');
-    Restaurant.find({_id : id})
+var getOne = function(id, cb){//find one with defined id number from 1-100
+    console.log('GET with number ' + id + ' from db/index.js');
+    Restaurant.find({name : id})
         .then((data) => cb(null, data));
 }
 
@@ -25,7 +29,7 @@ db.once('open', function(){
 Restaurant.insertMany(seed.restaurantEntries, function(err, docs){
 
 })
-Restaurant.insertMany(seed.reviewEntries, function(err, docs){
+Restaurant.insertMany(seed.reviewEntr†ies, function(err, docs){
     
 })
 */

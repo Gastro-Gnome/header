@@ -36,7 +36,7 @@ class Share extends React.Component {
     super();
  
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
     };
  
     this.openModal = this.openModal.bind(this);
@@ -64,7 +64,7 @@ class Share extends React.Component {
             <ShareIcon className="fas fa-external-link-alt"/>
             <div>Share</div>
           </ShareViewBox>
-        <Modal
+        {/* <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
@@ -74,7 +74,7 @@ class Share extends React.Component {
  
           <h2 ref={subtitle => this.subtitle = subtitle}>Share business</h2>
 
-        </Modal>
+        </Modal> */}
       </div>
     );
   }

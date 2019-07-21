@@ -17,11 +17,13 @@ class App extends React.Component {
   
   retrieveData() { //initially first data entry
     console.log('RETRIEVE DATA')
-    fetch('/header/data', {
+    //console.log(window.location.pathname);
+    fetch('header', {
       method: 'GET',
     })
       .then(res => res.json())
       .then((res) => this.setState({ data: res[0] }))
+      .catch((err) => console.log(err))
   }
 
   render() {
@@ -34,8 +36,7 @@ class App extends React.Component {
         <div>
           <Navbar />
         </div>
-        <div class = "ABC">
-          {/* {this.state.data ? <Header data={this.state.data} /> : <div></div>} */}
+        <div>
           {this.state.data ? <Header data={this.state.data}/> : <div />}
           </div>
       </div>

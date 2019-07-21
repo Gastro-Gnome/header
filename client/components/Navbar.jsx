@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import Search from './Search.jsx';
 
 const Yelp = styled.div`
+    z-index : 1;
 `;
 const TopContainer = styled.div`
   background: #d32323;
@@ -18,16 +20,20 @@ const YelpLogoBox = styled.div`
   font-size: 20px;
   display : flex;
   flex-direction : row; 
+  color:white;
+  font-family: cursive;
+  margin-right : 16px;
 `;
-const YelpLogo = styled.div`
-    font-size : 30px;
-    color:white;
+const YelpLogo = styled.img`
+    margin-top : 5px;
+    height : 50px;
+    margin-right : 3px;
 `;
 const SearchBox = styled.div`
   display: flex;
   flex-direction: row;
-  height: 50%;
-  padding : 20px;
+  height: 100%;
+  width : 100%;
 `;
 
 const FindIcon = styled.div`
@@ -36,17 +42,20 @@ const FindIcon = styled.div`
     color: #333;
     cursor: default;
     background-color : white;
+    font-size 13px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    padding : 5px;
 `;
-const FindInput = styled.input`
-  width : 250px;
-  font-size : 13px;
-`;
+
 const NearIcon = styled.div`
-float: left;
-    font-weight: bold;
-    color: #333;
-    cursor: default;
-    background-color : white;
+    float: left;
+        font-weight: bold;
+        color: #333;
+        cursor: default;
+        background-color : white;
+        font-size : 13px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        padding : 5px;
 `;
 const NearInput = styled.input`
   width : 250px;
@@ -60,6 +69,8 @@ const SearchIconBox = styled.button`
     background-color: #bd1f1f;
 `;
 const SearchIcon = styled.div`
+    height : 10px;
+    font-size : 18px;
 `;
 const SearchButton = styled.div`
     margin-left : 5px;
@@ -95,8 +106,6 @@ const ProfileDropdown = styled.button`
 `;
 const BottomContainer = styled.div`
     background-color : #fafafa;
-    border-style: solid;
-    border-width: 0.1px;
     height:100%;
 `;
 const BottomBox = styled.div`
@@ -105,13 +114,14 @@ const BottomBox = styled.div`
     align-items : center;
     justify-content : center;
     width : 100%;
-    height : 30px;;
+    height : 30px;
+    font-size 13px;
+    font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
 `;
 const RestaurantBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
-    border-style: solid;
     border-width: 1px;
     width 150px;
     align-items : center;
@@ -127,25 +137,17 @@ const RestaurantLogo = styled.div`
 const Chevron = styled.div`
     margin-left : 5px;
 `;
-
-const RestaurantDrop = styled.div`
-    background-color : blue;    
-    display : flex;
-    flex-wrap : wrap;
-    display : none;
-`;
 const HomeServiceBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
-    border-style: solid;
-    border-width: 1px;
     width 150px;
     align-items : center;
     :hover{
         color : blue;
     }
     height : 100%;
+    margin-right : 3px;
 `;
 const HomeServiceLogo = styled.div`
     font-size : 20px;
@@ -155,8 +157,6 @@ const AutoServiceBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
-    border-style: solid;
-    border-width: 1px;
     width 150px;
     align-items : center;
     :hover{
@@ -166,14 +166,13 @@ const AutoServiceBox = styled.div`
 `;
 const AutoServiceIcon = styled.div`
     font-size : 20px;
+    margin-right : 5px;
 `;
 const MoreBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
     margin-right : 80px;
-    border-style: solid;
-    border-width: 1px;
     width 100px;
     align-items : center;
     :hover{
@@ -185,8 +184,6 @@ const PencilBox = styled.div`
     display : flex;
     flex-direction : row;
     justify-content : center;
-    border-style: solid;
-    border-width: 1px;
     width 150px;
     align-items : center;
     :hover{
@@ -202,8 +199,6 @@ const BusinessBox = styled.div`
     flex-direction : row;
     justify-content : center;
     margin-right : 20px;
-    border-style: solid;
-    border-width: 1px;
     width 150px;
     align-items : center;
     :hover{
@@ -220,7 +215,6 @@ class Navbar extends React.Component {
         super(props);
         this.state = {
             findQuery: "",
-            nearQuery: "",
         }
     }
     render() {
@@ -230,12 +224,12 @@ class Navbar extends React.Component {
                     <TopContainer>
                         <TopBox>
                             <YelpLogoBox>
-                                <div>APPetizer</div>
-                                <YelpLogo className="fas fa-drumstick-bite" />
+                                <YelpLogo src ="https://s3-us-west-1.amazonaws.com/brandonheaderimages.com/yelpstars/images.png" />
+                                <div color="white">Gastro Gnome</div>
                             </YelpLogoBox>
                             <SearchBox>
                                 <FindIcon> Find </FindIcon>
-                                <FindInput placeholder="tacos, cheap dinner, Max's" />
+                                <Search placeholder="tacos, cheap dinner, Max's"/>
                                 <NearIcon> Near </NearIcon>
                                 <NearInput placeholder="Financial District, San Francisco, CA" />
                                 <SearchIconBox>
@@ -267,10 +261,9 @@ class Navbar extends React.Component {
                                 <RestaurantLogo className="fas fa-utensils" />
                                 Restaurants
                     <Chevron className="fas fa-chevron-down" />
-                                <RestaurantDrop>
-                                    <div>A</div>
-                                    <div>B</div>
-                                </RestaurantDrop>
+                        <div className="name-box">
+                            {/* <RestaurantNameBox /> */}
+                        </div>
                             </RestaurantBox>
                             <HomeServiceBox>
                                 <HomeServiceLogo className="fas fa-home" />
