@@ -25,7 +25,7 @@ app.get('/header', (req, res) => {
     })
 });
 
-app.get('/header/:id', (req, res) => {
+app.get('/:id/header', (req, res) => {
     //console.log('hi');
     //console.log(req.url)
     console.log('On server/index.js GET for one Restaurant Data value')

@@ -10,7 +10,7 @@
   },
   "scripts": {
     "start": "nodemon server/index.js",
-    "dev:react": "webpack -d --watch",
+    "dev:react": "webpack -p --watch",
     "seed": "node db/seed.js",
     "test": "jest",
     "start:docker": "npm run seed && npm start"
