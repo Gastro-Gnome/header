@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://localhost:27017/header'; //for localhost
+const mongoUri = 'mongodb://172.17.0.2/header'; //for ec2
 
 //const mongoUri = 'mongodb://172.17.0.2/header'; //for ec2
 // const mongoUri = 'mongodb://172.17.0.2:27017/header'; //for local
