@@ -25,9 +25,17 @@ describe('First React component Enzyme test', () => {
             fourCount : 0, 
             fiveCount : 0});
     })
+
     wrap.find('button#detailViewModal').simulate('click');
     expect(clickFn.toHaveBeenCalled());
     it('should render Detail View Modal', () => {
         shallow(<DetailView />);
+    })
+
+    it('should call sortReviews on mount', ()=>{
+
+    })
+    it('should rerender barchart', ()=>{
+        
     })
 });
