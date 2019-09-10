@@ -4,10 +4,11 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/Gastro-Gnome/photos
+  - https://github.com/Gastro-Gnome/header
+  - https://github.com/Gastro-Gnome/reservations
+  - https://github.com/Gastro-Gnome/reviews
+  - https://github.com/Gastro-Gnome/header-proxy
 
 ## Table of Contents
 
@@ -36,4 +37,21 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+
+Run seed data script:
+```sh
+npm run seed
+```
+
+Run Webpack
+```sh
+npm run dev-react
+```
+
+Start Node Server:
+```sh
+npm start
+```
+
+
 
