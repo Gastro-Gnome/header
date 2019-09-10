@@ -4,6 +4,15 @@ const getData = require('../db/index.js').getData;
 const getOne = require('../db/index.js').getOne;
 const app = express();
 const port = 8080;
+import expressStaticGzip from "express-static-gzip";
+
+app.use('/build/client', expressStaticGzip('build/client', {
+    enableBrotli: true,
+    orderPreference: ['br', 'gz'],
+    setHeaders: function (res, path) {
+       res.setHeader("Cache-Control", "public, max-age=31536000");
+    }
+ }));
 
 app.use(bodyParser.urlencoded({extended: true}));
 // app.use(express.static(":id"+ __dirname + '/../public'));
