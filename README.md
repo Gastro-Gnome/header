@@ -8,7 +8,7 @@
   - Docker containerization is used to deploy service onto AWS EC2 instances
   - Proxy is used to combine modules together by retrieving Webpack bundle.js file and rendering on one index.html file.
 
-Demo: https://www.youtube.com/watch?v=_RYAZTYVStI&feature=youtu.be
+Application Demo: https://www.youtube.com/watch?v=_RYAZTYVStI&feature=youtu.be
 
 ## Related Projects
 
