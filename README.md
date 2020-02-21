@@ -3,9 +3,9 @@
 ## Description
 
   - The header/navbar component of a restaurant review application built from scratch with React.
-  - Styled using React-styled components
-  - Data is randomly seeded onto a MongoDB following a schema, and CRUD operations are created to follow RESTful API
-  - Docker containerization is used to deploy service onto AWS EC2 instances
+  - Styled using React-styled components, line chart created using SVGs.
+  - Data is randomly seeded onto a MongoDB following a schema, and CRUD operations are created to follow RESTful API.
+  - Docker containerization is used to deploy service onto AWS EC2 instances.
   - Proxy is used to combine modules together by retrieving Webpack bundle.js file and rendering on one index.html file.
 
 Application Demo: https://www.youtube.com/watch?v=_RYAZTYVStI&feature=youtu.be
